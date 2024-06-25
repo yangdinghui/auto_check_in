@@ -1,0 +1,28 @@
+name: auto_check_in
+
+on:
+  schedule:
+    # 每天UTC时间00:00执行，根据你的时区调整，例如北京时间早上7点是UTC时间前一天的23:00
+    - cron: '0 23 * * *'
+jobs:  
+  run-python-script:
+    env:
+      COOKIE_QUARK: ${{ secrets.COOKIE_QUARK }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9' # 指定Python版本，根据需要调整
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # 如果你的脚本需要其他依赖，请在这里安装
+          # pip install -r requirements.txt
+      
+      - name: Run script
+        run: python ../../check_in_quark.py
