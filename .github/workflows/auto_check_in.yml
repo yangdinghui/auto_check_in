@@ -5,7 +5,7 @@ on:
     # 每天UTC时间00:00执行，根据你的时区调整，例如北京时间早上7点是UTC时间前一天的23:00
     # 0 23 * * * 北京时间早上7点是UTC时间前一天的23:00
     # 43 6 * * * 14:43
-    - cron: '50 6 * * *'
+    - cron: '53 6 * * *'
 jobs:  
   build:
     env:　
@@ -28,4 +28,4 @@ jobs:
           # pip install -r requirements.txt
       
       - name: Run script
-        run: python ../../check_in_quark.py
+        run: python check_in_quark.py
