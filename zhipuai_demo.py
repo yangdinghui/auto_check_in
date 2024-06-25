@@ -2,7 +2,7 @@
 
 import zhipuai
 
-zhipuai.api_key = "6971a4f263b0cb9cf7de4388912b3683.hJaHZRg2nrMx10ax"
+zhipuai.api_key = ""
 
 
 def call():
