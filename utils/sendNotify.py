@@ -85,6 +85,7 @@ if "QYWX_KEY" in os.environ:
 
 # 接入飞书webhook推送
 if "FS_KEY" in os.environ:
+    print(os.environ["FS_KEY"])
     if len(os.environ["FS_KEY"]) > 1:
         FS_KEY = os.environ["FS_KEY"]
 
@@ -283,10 +284,13 @@ def fs_key(title, content):
             json=data,
             headers=headers).json()
         print(response)
-        # todo 不知道怎么判断是否成功
+        if response['code'] != 0:
+            print("----------飞书推送失败----------")
+        else:
+            print("----------飞书推送成功----------")
     except Exception as e:
         print(f"报错信息:{e}")
-        print("推送失败")
+        print("----------推送失败----------")
 
 
 # 企业微信 APP 推送
