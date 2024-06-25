@@ -1,14 +1,14 @@
-# pip install zhipuai 请先在终端进行安装
-
 import zhipuai
 
-zhipuai.api_key = ""
+from ai import zhipuai_ai_key
+
+zhipuai.api_key = zhipuai_ai_key
 
 
-def call():
+def call_model(model_name, cont):
     response = zhipuai.model_api.sse_invoke(
-        model="chatglm_pro",
-        prompt=[{"role": "user", "content": "用python帮忙写个冒泡排序算法的代码，再给一个数组作为例子，写个测试程序"}],
+        model=model_name,
+        prompt=[{"role": "user", "content": cont}],
         temperature=0.9,
         top_p=0.7,
         incremental=True
@@ -27,4 +27,6 @@ def call():
 
 
 if __name__ == '__main__':
-    call()
+    content = '用python帮忙写个冒泡排序算法的代码，再给一个数组作为例子，写个测试程序'
+    # call_model('chatglm_pro', content)
+    call_model('glm-4', content)
