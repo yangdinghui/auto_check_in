@@ -8,6 +8,7 @@ jobs:
   run-python-script:
     env:
       COOKIE_QUARK: ${{ secrets.COOKIE_QUARK }}
+      FS_KEY: ${{ secrets.FS_KEY }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
