@@ -9,6 +9,3 @@ import os
 
 moonshot_ai_key = os.environ['moonshot_ai_key']
 zhipuai_ai_key = os.environ['zhipuai_ai_key']
-
-
-
